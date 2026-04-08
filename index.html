@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+  <body>
+       <!--Navigation bar from bootstrap-->
+    <div>
+     <nav class="navbar navbar-expand-lg">
+       <div class="container-md justify-content-end">
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+         </button>
+        <div class="collapse navbar-collapse justify-content-end " id="navbarNav">
+         <ul class="navbar-nav align-items-end text-end m-2">
+           <li class="nav-item">
+             <a class="nav-link active fw-bold text-white" aria-current="page" href="#contact">Home</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link active fw-bold text-white" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active fw-bold text-white" href="#skill">Specials</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active fw-bold text-white" href="#project">Contact</a>
+          </li>
+        </div>
+      </div>
+    </div>
+    <!--Image-->
+    <div>
+       <img src="Kitfo image.jpg" class="img-fluid" id="my-img" alt="Image of Kitfo">
+    </div>
+    <!--Aout section-->
+    <div class="my-objective m-5 p-5 col-8 mx-auto text-center rounded text-black">
+      <h1>Our Objective</h1>
+        <p>At the heart of Habesha culture lies a deep-rooted tradition of hospitality and shared community—a bond best experienced around a communal plate of Injera. Our primary objective is to bridge the gap between culinary curiosity and authentic tradition by curating a definitive guide to the city’s top 10 Habesha restaurants.
+
+We believe that finding an extraordinary dining experience shouldn't be left to chance. Whether you are seeking the smoky depth of a perfectly simmered Doro Wat, the intricate flavors of a vegetarian Beyaynetu, or the aromatic ritual of a traditional coffee ceremony, our mission is to lead you to the artisans who do it best. We don't just list restaurants; we celebrate the spice, the soul, and the stories that make Habesha cuisine a global treasure.</p>
+    </div>
+    <!--Location choosing-->
+    <section>
+        <!--My description about the filtered location-->
+       <div class="location-dis col-8">
+         <h2>Explore Habesha Flavors Near You</h2>
+           <p>Select your preferred neighborhoods to find the perfect spot.</p>
+       </div>
+       <!--Actual locations that can be filtered by checkbox-->
+       <div class="filter-container d-flex justify-content-center flex-wrap mb-5">
+        <div class="filter-item">
+            <div>
+              
+              <input type="checkbox" id="all" checked>
+              <label>All</label><br>
+            </div>
+            
+            <div>
+              <input type="checkbox" id="all">
+              <label>Sanfrancisco</label><br>   
+            </div>
+            
+            <div>
+              <input type="checkbox" id="all">
+              <label>Oakland</label><br>
+            </div>
+            
+            <div>
+              <input type="checkbox" id="all">
+              <label>Sanjose</label><br>
+            </div>
+            
+            <div>
+              <input type="checkbox" id="all">
+              <label>Fermont</label><br>
+            </div>
+            
+
+            <div>
+              <input type="checkbox" id="all">
+              <label>Berkley</label><br>
+            </div>
+            
+        </div>
+       </div> 
+    </section>
+    
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

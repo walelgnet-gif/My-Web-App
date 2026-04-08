@@ -1,0 +1,44 @@
+/*making the nav bar to float*/
+body {
+    background-color: aliceblue;
+}
+.navbar {
+    position: absolute;
+    background-color: transparent;
+}
+/*flipping the color of the toggler*/
+.navbar-toggler-icon {
+    filter: invert(1);
+}
+.navbar-toggler {
+    border-color: aliceblue;
+}
+.nav-link:hover{
+    color: #ffc107;
+    transition: 0.3s;
+}
+
+#my-img {
+    height: 70vh;
+    object-position: center;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+@media (max-width: 768px) {
+    #my-img {
+        height: 40vh;
+        object-position: center;
+    }
+}
+.my-objective {
+    text-align: center;
+}
+.location-dis {
+    h2 {
+       text-align: center;
+    }
+    p {
+      text-align: center;  
+    }
+}
