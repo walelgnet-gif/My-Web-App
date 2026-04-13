@@ -16,7 +16,7 @@
   <body>
        <!--Navigation bar from bootstrap-->
     <div>
-     <nav class="navbar navbar-expand-lg">
+     <nav class="navbar navbar-expand-lg sticky-top bg-light shadow-sm">
        <div class="container-md justify-content-end">
 
          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,7 +43,7 @@
 
           <li class="nav-item">
 
-            <a class="nav-link active fw-bold" href="#specials">Specials</a>
+            <a class="nav-link active fw-bold" href="#Restaurants">Restaurants</a>
 
           </li>
 
@@ -60,7 +60,7 @@
     <!--Image and header-->
     <div class="hero-section">
       <div>
-        <h1 class="display-2 fw-bold text-black text-center heading pb-3">Taste the Tradition</h1>  
+        <h1 class="display-2 fw-bold text-black text-center heading pb-3 mt-5">Taste the Tradition</h1>  
       </div>
       <div>
         <img src="Kitfo image.jpg" class="img-fluid" id="my-img" alt="Image of Kitfo">
@@ -75,51 +75,25 @@
 We believe that finding an extraordinary dining experience shouldn't be left to chance. Whether you are seeking the smoky depth of a perfectly simmered Doro Wat, the intricate flavors of a vegetarian Beyaynetu, or the aromatic ritual of a traditional coffee ceremony, our mission is to lead you to the artisans who do it best. We don't just list restaurants; we celebrate the spice, the soul, and the stories that make Habesha cuisine a global treasure.</p>
     </div>
     <!--Location choosing-->
-    <section>
-        <!--My description about the filtered location-->
-       <div class="location-dis">
-         <h2 class="my-about">Explore Habesha Flavors Near You</h2>
-           <p>Select your preferred neighborhoods to find the perfect spot.</p>
-       </div>
-       <!--Images with the specified country and button-->
-      <div class="card text-center">
 
-  <div class="card-body lg-col-8">
-    <h5 class="card-title fw-bold display-4">Sanfrancisco</h5>
-    <img class="sanfrancisco" src="Kitfo image.jpg"><br>
-    <a href="#" class="btn btn-primary my-3">Go somewhere</a>
+
+     <div class="container my-5">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="restaurant-container">
+    <div class="col-12 text-center">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <p class="mt-2">Loading the best Habesha spots...</p>
+    </div>
   </div>
-  <!--Card 2-->
-   <div class="card-body lg-col-8">
-    <h5 class="card-title fw-bold display-4">Oakland</h5>
-    <img class="sanfrancisco" src="Kitfo image.jpg"><br>
-    <a href="#" class="btn btn-primary my-3">Go somewhere</a>
-  </div>
-  <!--Card 3-->
-   <div class="card-body lg-col-8">
-    <h5 class="card-title fw-bold display-4">Sanjose</h5>
-    <img class="sanfrancisco" src="Kitfo image.jpg"><br>
-    <a href="#" class="btn btn-primary my-3">Go somewhere</a>
-  </div>
-  <!--Card 4-->
-   <div class="card-body lg-col-8">
-    <h5 class="card-title fw-bold display-4">Berkley</h5>
-    <img class="sanfrancisco" src="Kitfo image.jpg"><br>
-    <a href="#" class="btn btn-primary my-3">Go somewhere</a>
-  </div>
-   <!--Class 5-->
-  <div class="card-body lg-col-8">
-    <h5 class="card-title fw-bold display-4">Fermont</h5>
-    <img class="sanfrancisco" src="Kitfo image.jpg"><br>
-    <a href="#" class="btn btn-primary my-3">Go somewhere</a>
-  </div>
-</div>
-<div id="myDiv">
+</div> 
+
   
-</div>   
+   
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
     <script src="index.js"></script>
   </body>
 </html>
