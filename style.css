@@ -13,11 +13,9 @@ body {
     filter: invert(1);
 }
 .navbar-toggler {
-    border-color: aliceblue;
-}
-.nav-link:hover {
-    color: #ffc107;
-    transition: 0.3s;
+    border-color: black;
+    border-style: solid;
+    border-width: 3px;
 }
 .heading {
     font-family: "Playwrite US Trad", cursive;
