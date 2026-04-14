@@ -1,7 +1,7 @@
 // ==========================================
 // 1. CONFIGURATION
 // ==========================================
-const AIRTABLE_PAT = 'pathPBXZReqMYwcVK.788d203d55fd497ea4db131da96c0fc88320ad35734851659e996a56c04dab82'; 
+
 const url = 'https://api.airtable.com/v0/appwkF0OIfJIIXDXJ/HABESHA%20FOOD';
 
 // ==========================================
