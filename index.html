@@ -29,11 +29,6 @@
 
          <ul class="navbar-nav align-items-end text-end mx-2">
 
-           <li class="nav-item">
-
-             <a class="nav-link active fw-bold" aria-current="page" href="#home">Home</a>
-
-           </li>
 
            <li class="nav-item">
 
@@ -43,7 +38,7 @@
 
           <li class="nav-item">
 
-            <a class="nav-link active fw-bold" href="#Restaurants">Restaurants</a>
+            <a class="nav-link active fw-bold" href="#restaurants">Restaurants</a>
 
           </li>
 
@@ -69,14 +64,30 @@
     </div>
     <!--Aout section-->
     <div class="my-objective m-5 p-5 col-8 mx-auto text-center rounded text-black">
-      <h1 class="my-about">Our Objective</h1>
+      <h1 class="my-about" id="about">Our Objective</h1>
         <p class="fw-bold">At the heart of Habesha culture lies a deep-rooted tradition of hospitality and shared community—a bond best experienced around a communal plate of Injera. Our primary objective is to bridge the gap between culinary curiosity and authentic tradition by curating a definitive guide to the city’s top 10 Habesha restaurants.
 
 We believe that finding an extraordinary dining experience shouldn't be left to chance. Whether you are seeking the smoky depth of a perfectly simmered Doro Wat, the intricate flavors of a vegetarian Beyaynetu, or the aromatic ritual of a traditional coffee ceremony, our mission is to lead you to the artisans who do it best. We don't just list restaurants; we celebrate the spice, the soul, and the stories that make Habesha cuisine a global treasure.</p>
     </div>
     <!--Location choosing-->
       <h1 class="text-center mb-5 fw-bold display-3">Restaurants</h1>
+      <div class="container mt-4">
+  <div class="row mb-4">
+    <div class="col-md-4">
+      <label for="locationFilter" class="form-label fw-bold">Filter by Location:</label>
+      <select id="locationFilter" class="form-select" onchange="handleFilterChange()">
+        <option value="All">All Locations</option>
+        <option value="San Francisco">San Francisco</option>
+        <option value="Oakland">Oakland</option>
+        <option value="San Jose">San Jose</option>
+        <option value="Berkeley">Berkeley</option>
+        <option value="Fremont">Fremont</option>
+      </select>
+    </div>
+  </div>
 
+  
+</div>
      
       <!--change it to main 87-->
         <diV class="row g-3" id="restaurants"></div>
@@ -86,11 +97,40 @@ We believe that finding an extraordinary dining experience shouldn't be left to 
   </div>
 </div> 
 
-  
-   
+<!--Contact Area-->
+<footer id="contact">
 
+</footer> 
+   
+<div class="modal fade" id="detailsModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+          
+          <div class="modal-header bg-light">
+            <h5 class="modal-title fw-bold" id="modalTitle">Restaurant Name</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          
+          <div class="modal-body">
+            <img id="modalImage" src="" class="img-fluid rounded mb-3 w-100" style="height: 250px; object-fit: cover;" alt="">
+            <p id="modalDescription" class="mb-3"></p>
+            
+            <div class="bg-light p-3 rounded">
+              <p class="mb-1"><strong>💰 Price:</strong> <span id="modalPrice"></span></p>
+              <p class="mb-0"><strong>🕒 Hours:</strong> <span id="modalHours"></span></p>
+            </div>
+          </div>
+          
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Close</button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
     
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 <script src="script.js" defer></script>
+
   </body>
 </html>

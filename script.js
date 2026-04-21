@@ -4,14 +4,14 @@ const URL = "https://api.airtable.com/v0/appwkF00IfJIIXDXJ/HABESHA-FOOD";
 
 const PAT = "patYeGOafWRtc502S.a00a3044a65c07de8b2b92093946c8a3933e6ca17678d5923372a60a28aa4e01";
 
-// function for our list view
+
 async function getAllRecords() {
   let getResultElement = document.getElementById("restaurants");
 
   const options = {
     method: "GET",
     headers: {
-      // Bearer = I got the key
+     
       Authorization: `Bearer ${PAT}`,
     },
   };
@@ -22,32 +22,68 @@ async function getAllRecords() {
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data); // response is an object w/ .records array
+      window.restaurantData = data.records; 
+      console.log(data); 
 
-      getResultElement.innerHTML = ""; // clear brews
+      getResultElement.innerHTML = ""; 
+
+      
+let locationCounts = {};
+for (let i = 0; i < data.records.length; i++) {
+  let loc = data.records[i].fields["Location"] || "";
+  locationCounts[loc] = (locationCounts[loc] || 0) + 1;
+}
+
+
+data.records.sort((a, b) => {
+  let locA = a.fields["Location"] || "";
+  let locB = b.fields["Location"] || "";
+  
+ 
+  if (locationCounts[locB] !== locationCounts[locA]) {
+    return locationCounts[locB] - locationCounts[locA];
+  }
+ 
+  return locA.localeCompare(locB); 
+});
 
       let newHtml = "";
+      let previousLocation = "";
 
       for (let i = 0; i < data.records.length; i++) {
-        // Write some property fields like name
-        let name = data.records[i].fields["Name"]; // here we are getting column values
+        
+        let name = data.records[i].fields["Name"]; 
         let location = data.records[i].fields["Location"];
         let image = data.records[i].fields["Image"];
-         //here we are using the Field ID to fecth the name property
+         
         let review = data.records[i].fields["Review"];
+        let yelpLink = data.records[i].fields["Yelp"];
 
-        newHtml += `
-        <div class="col-4">
-        <h1>${location}</h1>
-        <h2>${name}</h2>
-        ${
-          image
-          // ?(if)
-            ? `<img class="card-img-top rounded" alt="${name}" src="${image[0].url}">`
-            // :(else)
-            : ``
+       if (location !== previousLocation) {
+          newHtml += `<div class="col-12 mt-4"><h1 class="text-center mb-3 fw-bold">${location}</h1></div>`;
+          previousLocation = location; 
         }
-        <button type="button" class="btn btn-primary">Yelp</button>
+
+      
+        newHtml += `
+        <div class="col-12 col-md-6 col-lg-4 mb-4">
+          <div class="card h-100 shadow-sm border-0">
+            ${
+              image
+              //if
+                ? `<img class="card-img-top" alt="${name}" src="${image[0].url}" style="height: 220px; object-fit: cover;">`
+              //else return empty
+                : ``
+            }
+            <div class="card-body d-flex flex-column">
+              <h4 class="card-title fw-bold mb-3">${name}</h4>
+              
+              <div class="mt-auto d-flex gap-2">
+                <button onclick="openModal(${i})" class="btn btn-dark w-50">Details</button>
+                <a href="${yelpLink}" target="_blank" class="btn btn-danger w-50">Yelp</a>
+              </div>
+            </div>
+          </div>
         </div>
         `;
         
@@ -59,13 +95,28 @@ async function getAllRecords() {
 }
 
 
-// look up window.location.search and split, so this would take
-// https://dmspr2021-airtable-app.glitch.me/index.html?id=receHhOzntTGZ44I5
-// and look at the ?id=receHhOzntTGZ44I5 part, then split that into an array
-// ["?id=", "receHhOzntTGZ44I5"] and then we only choose the second one
 let idParams = window.location.search.split("?id=");
 if (idParams.length >= 2) {
-  getOneRecord(idParams[1]); // create detail view HTML w/ our id
+  getOneRecord(idParams[1]);
 } else {
-  getAllRecords(); // no id given, fetch summaries
+  getAllRecords(); 
+}
+
+
+function openModal(index) {
+ 
+  let record = window.restaurantData[index].fields;
+  
+  
+  document.getElementById("modalTitle").innerText = record["Name"] || "Details";
+  document.getElementById("modalDescription").innerText = record["Description"] || "No description available.";
+  document.getElementById("modalPrice").innerText = record["Price"] || "Not listed";
+  document.getElementById("modalHours").innerText = record["Availability / Hours"] || "Not listed";
+  
+  let image = record["Image"];
+  document.getElementById("modalImage").src = image ? image[0].url : "";
+
+  // Show the popup using Bootstrap's built-in tool!
+  let myModal = new bootstrap.Modal(document.getElementById('detailsModal'));
+  myModal.show();
 }
