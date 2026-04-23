@@ -63,7 +63,7 @@ data.records.sort((a, b) => {
           newHtml += `<div class="col-12 mt-4"><h1 class="text-center mb-3 fw-bold">${location}</h1></div>`;
           previousLocation = location; 
         }
-
+        
       
         newHtml += `
         <div class="col-12 col-md-6 col-lg-4 mb-4">
@@ -76,12 +76,18 @@ data.records.sort((a, b) => {
                 : ``
             }
             <div class="card-body d-flex flex-column">
-              <h4 class="card-title fw-bold mb-3">${name}</h4>
-              
+              <div class="mt-auto d-flex gap-2">
+              <h4 class="card-title fw-bold mb-3 w-50">${name}</h4>
+              <h4 class="card-title mb-3 w-50 text-end">${review}</h4>
+              </div>
               <div class="mt-auto d-flex gap-2">
                 <button onclick="openModal(${i})" class="btn btn-dark w-50">Details</button>
                 <a href="${yelpLink}" target="_blank" class="btn btn-danger w-50">Yelp</a>
               </div>
+            </div>
+            <br><br>
+            <div>
+               
             </div>
           </div>
         </div>
@@ -112,7 +118,10 @@ function openModal(index) {
   document.getElementById("modalDescription").innerText = record["Description"] || "No description available.";
   document.getElementById("modalPrice").innerText = record["Price"] || "Not listed";
   document.getElementById("modalHours").innerText = record["Availability / Hours"] || "Not listed";
-  
+  document.getElementById("deliveryOption").innerText = record["Delivery option"] || "No delivery";
+  document.getElementById("specialFood").innerText = record["Special dishes"] || "";
+  document.getElementById("recipeFood").innerText = record["Special dishes recipe"] || "";
+  document.getElementById("specialPrice").innerText = record["Special dishes price"] || "";
   let image = record["Image"];
   document.getElementById("modalImage").src = image ? image[0].url : "";
 

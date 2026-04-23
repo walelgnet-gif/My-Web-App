@@ -14,6 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Sekuya&display=swap" rel="stylesheet">
 </head>
   <body>
+
        <!--Navigation bar from bootstrap-->
     <div>
      <nav class="navbar navbar-expand-lg sticky-top bg-light shadow-sm">
@@ -98,9 +99,6 @@ We believe that finding an extraordinary dining experience shouldn't be left to 
 </div> 
 
 <!--Contact Area-->
-<footer id="contact">
-
-</footer> 
    
 <div class="modal fade" id="detailsModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
@@ -117,9 +115,15 @@ We believe that finding an extraordinary dining experience shouldn't be left to 
             
             <div class="bg-light p-3 rounded">
               <p class="mb-1"><strong>💰 Price:</strong> <span id="modalPrice"></span></p>
-              <p class="mb-0"><strong>🕒 Hours:</strong> <span id="modalHours"></span></p>
+              <p class="mb-1"><strong>🕒 Hours:</strong> <span id="modalHours"></span></p>
+              <p class="mb-1"><strong>🛵 Delivery Option:</strong> <span id="deliveryOption"></span></p>
+              <h2 class="text-center mt-1 mb-0">Special Food</h2>
+              <hr>
+              <p class="mb-1"><strong>Food name: </strong><span id="specialFood"></span></p>
+              <p class="mb-1"><strong>Recipe: </strong><span id="recipeFood"></span></p>
+              <p class="mb-1"><strong>Price: </strong></p><span id="specialPrice"></span>
             </div>
-          </div>
+
           
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Close</button>
@@ -128,9 +132,9 @@ We believe that finding an extraordinary dining experience shouldn't be left to 
         </div>
       </div>
     </div>
-    
+     
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-<script src="script.js" defer></script>
+        <script src="script.js" defer></script>
 
   </body>
 </html>
