@@ -63,3 +63,85 @@ body {
 .sanfrancisco {
     width: 600px;
 }
+
+body {
+    background-color: #f8f9fa;
+    color: #212529;
+    transition: 0.3s; 
+}
+
+
+body.dark-theme {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+
+body.dark-theme .card {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border: 1px solid #333;
+}
+
+body.dark-theme .modal-content {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+body.dark-theme .my-objective {
+    color: #ffffff !important;
+}
+
+body.dark-theme .hero-section h1 {
+    color: #ffffff !important;
+}
+
+body.dark-theme label {
+    color: #ffffff;
+}
+
+body.dark-theme #restaurants h1 {
+    color: #ffffff;
+}
+
+body.dark-theme .nav-link {
+    color: #ffffff !important;
+}
+
+body.dark-theme nav {
+    background-color: #1a1a1a !important;
+}
+
+body.dark-theme .btn-dark {
+    background-color: transparent !important;
+    border: 1px solid #ffffff !important;
+    color: #ffffff !important;
+    transition: 0.3s;
+}
+
+body.dark-theme .btn-dark:hover {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+body.dark-theme .bg-light.p-3.rounded {
+    background-color: #2b2b2b !important; 
+    color: #ffffff !important;           
+}
+
+
+body.dark-theme .modal-body h2, 
+body.dark-theme .modal-body strong {
+    color: #ffffff !important;
+}
+
+
+body.dark-theme .modal-header .modal-title {
+    color: #000000 !important;
+}
+
+
+body.dark-theme .modal-content {
+    background-color: #1e1e1e !important;
+    border: 1px solid #444;
+}

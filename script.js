@@ -31,6 +31,7 @@ async function getAllRecords() {
 let locationCounts = {};
 for (let i = 0; i < data.records.length; i++) {
   let loc = data.records[i].fields["Location"] || "";
+  // See if it is counted and add 1
   locationCounts[loc] = (locationCounts[loc] || 0) + 1;
 }
 
@@ -43,7 +44,7 @@ data.records.sort((a, b) => {
   if (locationCounts[locB] !== locationCounts[locA]) {
     return locationCounts[locB] - locationCounts[locA];
   }
- 
+ // If both are equal arange them in alphabetical order
   return locA.localeCompare(locB); 
 });
 
@@ -110,9 +111,7 @@ if (idParams.length >= 2) {
 
 
 function openModal(index) {
- 
   let record = window.restaurantData[index].fields;
-  
   
   document.getElementById("modalTitle").innerText = record["Name"] || "Details";
   document.getElementById("modalDescription").innerText = record["Description"] || "No description available.";
@@ -122,10 +121,76 @@ function openModal(index) {
   document.getElementById("specialFood").innerText = record["Special dishes"] || "";
   document.getElementById("recipeFood").innerText = record["Special dishes recipe"] || "";
   document.getElementById("specialPrice").innerText = record["Special dishes price"] || "";
+  
   let image = record["Image"];
   document.getElementById("modalImage").src = image ? image[0].url : "";
 
   // Show the popup using Bootstrap's built-in tool!
   let myModal = new bootstrap.Modal(document.getElementById('detailsModal'));
   myModal.show();
+} // <--- THIS IS THE FIX. We closed the Modal box here.
+
+// Now the Filter box is outside and the HTML can finally "see" it!
+function handleFilterChange() {
+    let selectedLocation = document.getElementById("locationFilter").value;
+    let getResultElement = document.getElementById("restaurants");
+    
+    getResultElement.innerHTML = "";
+    let filteredHtml = "";
+    let previousLocation = ""; 
+
+    window.restaurantData.forEach((record, i) => {
+        let fields = record.fields;
+        let restaurantLocation = fields["Location"] || "";
+
+        if (selectedLocation === "All" || restaurantLocation === selectedLocation) {
+            
+            if (restaurantLocation !== previousLocation) {
+                filteredHtml += `<div class="col-12 mt-4"><h1 class="text-center mb-3 fw-bold">${restaurantLocation}</h1></div>`;
+                previousLocation = restaurantLocation;
+            }
+
+            let name = fields["Name"] || "No Name";
+            let review = fields["Review"] || "N/A";
+            let yelpLink = fields["Yelp"] || "#";
+            let imageArr = fields["Image"];
+            let imageUrl = (imageArr && imageArr.length > 0) ? imageArr[0].url : "";
+
+            filteredHtml += `
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        ${imageUrl ? `<img src="${imageUrl}" class="card-img-top" style="height: 220px; object-fit: cover;" alt="${name}">` : ''}
+                        <div class="card-body d-flex flex-column">
+                            <div class="mt-auto d-flex gap-2">
+                                <h4 class="card-title fw-bold mb-3 w-50">${name}</h4>
+                                <h4 class="card-title mb-3 w-50 text-end">${review}</h4>
+                            </div>
+                            <div class="mt-auto d-flex gap-2">
+                                <button onclick="openModal(${i})" class="btn btn-dark w-50">Details</button>
+                                <a href="${yelpLink}" target="_blank" class="btn btn-danger w-50">Yelp</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+        }
+    });
+
+    getResultElement.innerHTML = filteredHtml;
 }
+function toggleDarkMode() {
+    let bodyElement = document.body;
+    
+    // 1. Flip the switch FIRST
+    bodyElement.classList.toggle("dark-theme");
+
+    let btn = document.getElementById("darkModeToggle");
+
+    // 2. NOW check if it worked to change the button text
+    if (bodyElement.classList.contains("dark-theme")) {
+        btn.innerText = "☀️ Light Mode";
+        btn.className = "btn btn-outline-light";
+    } else {
+        btn.innerText = "🌙 Dark Mode";
+        btn.className = "btn btn-outline-dark";
+    }
+} // This is the ONLY bracket you need to close the function!
