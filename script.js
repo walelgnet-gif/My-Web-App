@@ -125,9 +125,12 @@ function openModal(index) {
   let image = record["Image"];
   document.getElementById("modalImage").src = image ? image[0].url : "";
 
+  
   let myModal = new bootstrap.Modal(document.getElementById('detailsModal'));
   myModal.show();
-} !
+} 
+
+
 function handleFilterChange() {
     let selectedLocation = document.getElementById("locationFilter").value;
     let getResultElement = document.getElementById("restaurants");
@@ -182,7 +185,7 @@ function toggleDarkMode() {
 
     let btn = document.getElementById("darkModeToggle");
 
-   
+    
     if (bodyElement.classList.contains("dark-theme")) {
         btn.innerText = "☀️ Light Mode";
         btn.className = "btn btn-outline-light";
