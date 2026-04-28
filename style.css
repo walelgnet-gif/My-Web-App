@@ -145,3 +145,29 @@ body.dark-theme .modal-content {
     background-color: #1e1e1e !important;
     border: 1px solid #444;
 }
+
+footer {
+    border-top: 1px solid #dee2e6;
+    background-color: #f8f9fa;
+}
+
+.footer-icon {
+    color: #212529;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.footer-icon:hover {
+    transform: scale(1.2);
+    color: #c0392b;
+}
+
+/* Dark mode support */
+body.dark-theme footer {
+    background-color: #1a1a1a !important;
+    border-top: 1px solid #333;
+    color: #ffffff;
+}
+
+body.dark-theme .footer-icon {
+    color: #ffffff;
+}

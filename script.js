@@ -125,12 +125,9 @@ function openModal(index) {
   let image = record["Image"];
   document.getElementById("modalImage").src = image ? image[0].url : "";
 
-  // Show the popup using Bootstrap's built-in tool!
   let myModal = new bootstrap.Modal(document.getElementById('detailsModal'));
   myModal.show();
-} // <--- THIS IS THE FIX. We closed the Modal box here.
-
-// Now the Filter box is outside and the HTML can finally "see" it!
+} !
 function handleFilterChange() {
     let selectedLocation = document.getElementById("locationFilter").value;
     let getResultElement = document.getElementById("restaurants");
@@ -180,12 +177,12 @@ function handleFilterChange() {
 function toggleDarkMode() {
     let bodyElement = document.body;
     
-    // 1. Flip the switch FIRST
+    
     bodyElement.classList.toggle("dark-theme");
 
     let btn = document.getElementById("darkModeToggle");
 
-    // 2. NOW check if it worked to change the button text
+   
     if (bodyElement.classList.contains("dark-theme")) {
         btn.innerText = "☀️ Light Mode";
         btn.className = "btn btn-outline-light";
@@ -193,4 +190,4 @@ function toggleDarkMode() {
         btn.innerText = "🌙 Dark Mode";
         btn.className = "btn btn-outline-dark";
     }
-} // This is the ONLY bracket you need to close the function!
+} 
